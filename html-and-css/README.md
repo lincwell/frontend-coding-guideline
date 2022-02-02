@@ -35,17 +35,19 @@
 
 ```
 // Good CSS
-.form__button {
-  color: white; // default
-  border: #333; // default
-  &.--primary {
-    color: orange;
-  }
-  &.--secondary {
-    color: blue;
-  }
-  &.--disabled {
-    opacity: 0.3;
+.form {
+  &__button {
+    color: white; // default
+    border: #333; // default
+    &.--primary {
+      color: orange;
+    }
+    &.--secondary {
+      color: blue;
+    }
+    &.--disabled {
+      opacity: 0.3;
+    }
   }
 }
 ```
