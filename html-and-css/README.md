@@ -27,6 +27,8 @@
 
 ### CSS
 
+**CSS in JS (React) で記載する場合は下記のルールは適用しません。CSS in JS のドキュメント（TODO）を参照してください。**
+
 スタイルを指定するクラスには Chainable BEM Modifier の考え方を用いる。フォーマットは下記のようにする。
 `.block__element`
 `.--modifier`
