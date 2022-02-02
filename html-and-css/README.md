@@ -81,6 +81,16 @@
 </form>
 ```
 
+単語の区切りにはハイフンを用いる (`kebab-case`)
+
+```
+// Good
+.contact-form
+// Bad
+.contact_form
+.contactForm
+```
+
 制御のためのクラス名は、その目的がわかるようにする。例えば、下記のように命名する。
 
 - JavaScript によって操作される要素 => `js-element`
