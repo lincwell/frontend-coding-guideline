@@ -23,7 +23,7 @@ WIP
 - React コンポーネント定義の命名は UpperCamelCase とする。
 - ファイル名は、
   - React コンポーネントに対しては `UpperCamelCase.tsx`
-  - それ以外は `lowerCamelCase.tsx`
+  - それ以外は `lowerCamelCase.ts`
 - ディレクトリ名は、`kebab-case` とする。
 - スタイルは `styled-components` で実装する。詳細は (TODO: CSS in JS) を参照。
 - 不要な `div` を避け、`React.Fragment` を用いる。
