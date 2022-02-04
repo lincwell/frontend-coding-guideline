@@ -19,7 +19,7 @@
 - 要素を並べたい場合、flexbox を用いる。
 - 不要なコメントタグを残さない。
 - パフォーマンスに配慮する。
-  - 初期描画が不要な img 要素に対しては `loading=lazy` を付与する。
+  - 初期描画が不要な `img` 要素に対しては `loading=lazy` を付与する。
   - TODO
 - アクセシビリティに配慮する
   - `alt` 属性を必ず付与する。[An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) ([日本語訳](https://qiita.com/hibikikudo/items/f710933664094632540d))
