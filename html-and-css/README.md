@@ -131,6 +131,59 @@ padding-left: 1.5rem;
 padding-bottom: 2rem;
 ```
 
+- id セレクタ、タイプセレクタへのスタイル指定はしない（class セレクタのみ）
+  - スタイルがタイプに依存することで、保守性が下がるため
+  - ul や ol に対しての li や、dl に対しての dt や dd などは対象外（構造としてタイプが決まってしまっていて変更になる可能性が少ないため）
+
+```
+// Good
+.header {
+  / * some style */
+}
+
+// Bad
+header {
+  / * some style */
+}
+
+// Bad
+#header {
+  / * some style */
+}
+```
+
+- 子セレクタ、子孫セレクタは極力使わない
+  - ブラウザへの負荷が高まるため
+  - 影響範囲が分かりづらくなるため
+
+```
+// Good
+.hoge-fuga {
+  / * some style */
+}
+
+// Bad
+.hoge .fuga {
+  / * some style */
+}
+```
+
+- 値が 0 の場合は単位を指定しない
+
+```
+// Good
+.example {
+ margin-top: 0;
+}
+
+// Bad
+.example {
+ margin-top: 0rem;
+}
+```
+
+- !important を使用しない
+
 ## その他
 
 - 文字エンコーディングは常に UTF-8 とする。
