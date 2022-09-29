@@ -104,7 +104,3 @@ TODO: React の話から逸れそうだから分けたほうがいいかも
 # References
 
 [21 Best Practices for a Clean React Project](https://betterprogramming.pub/21-best-practices-for-a-clean-react-project-df788a682fb)
-
-```
-
-```
