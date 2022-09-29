@@ -60,6 +60,16 @@ const handleClick = () => dispatch(SOME_ACTION)
 <SomeCompoennt onClick={() => dispatch(SOME_ACTION)} />
 ```
 
+- 文字列を props に渡すときは `{}` ではなく文字列リテラルとして渡す。
+
+```
+// Good
+<FooComponent foo="baz" />
+
+// Bad
+<FooComponent foo={'baz'} />
+```
+
 - import の順序に一貫性をもたせる。
 
   - 必要であれば、[eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) などを用いる。
@@ -94,3 +104,7 @@ TODO: React の話から逸れそうだから分けたほうがいいかも
 # References
 
 [21 Best Practices for a Clean React Project](https://betterprogramming.pub/21-best-practices-for-a-clean-react-project-df788a682fb)
+
+```
+
+```
