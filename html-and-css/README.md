@@ -131,7 +131,7 @@ padding-left: 1.5rem;
 padding-bottom: 2rem;
 
 // Bad
-padding: 0 1.5rem 2rem 1.5rem
+padding: 0 1.5rem 2rem 1.5rem;
 ```
 
 - id セレクタ、タイプセレクタへのスタイル指定はしない（class セレクタのみ）
