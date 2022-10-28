@@ -70,6 +70,7 @@ const handleClick = () => dispatch(SOME_ACTION)
 <FooComponent foo={'baz'} />
 ```
 
+- 正しい英単語を使う。
 - import の順序に一貫性をもたせる。
 
   - 必要であれば、[eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) などを用いる。
