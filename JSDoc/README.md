@@ -8,13 +8,13 @@
 - - ページコンポーネント以外(ページコンポーネントも特殊な説明が必要な場合は記載可)
 
 - 表示方法の一例
-- - 「例:」と明記
+- - 「表示例:」と明記
 - - ページコンポーネントも記載
 
 ```
 ページコンポーネントの場合
 /**
- * 例: 予約一覧 > AGA、アレルギー > 画像アップロード
+ * 表示例: 予約一覧 > AGA、アレルギー > 画像アップロード
  */
 export const TelemedicineAffectedArea = () => {
 ```
@@ -23,7 +23,7 @@ export const TelemedicineAffectedArea = () => {
 ページコンポーネント以外
 /**
  * 数値の入力に使用
- * 例: 予約詳細 > 決済 > 一部のポイントを使用する
+ * 表示例: 予約詳細 > 決済 > 一部のポイントを使用する
  */
 export const NumberBoxInput = ({ textBox, props }: CustomInputProps) => (
 ```
