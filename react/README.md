@@ -20,7 +20,6 @@ WIP
 
 ### Readability
 
-- React コンポーネント定義の命名は UpperCamelCase とする。
 - ファイル名は、
   - React コンポーネントに対しては `UpperCamelCase.tsx`
   - それ以外は `lowerCamelCase.ts`
