@@ -6,6 +6,7 @@ Linc'well のフロントエンドで採用しているコーディングルー�
 - [React](./react/README.md)
 - [JSDoc](./JSDoc/README.md)
 - [Accessibility](./accessibility/README.md)
+- [JS/TS](./js-ts/README.md)
 
 ルールの追加・修正を歓迎しています。
 その際、基本的に Issue を立てるようにしてください。
