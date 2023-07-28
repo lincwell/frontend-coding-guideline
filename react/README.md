@@ -18,45 +18,139 @@ WIP
 - TODO: VSCode の導入手順
 - TODO: 必要であれば共通設定のリポジトリ
 
-### Readability
+---
 
-- ファイル名は、
-  - React コンポーネントに対しては `UpperCamelCase.tsx`
-  - それ以外は `lowerCamelCase.ts`
-- ディレクトリ名は、`kebab-case` とする。
-- スタイルは `styled-components` で実装する。詳細は (TODO: CSS in JS) を参照。
+### 命名規則を統一する
 
-- JSX にそのまま無名関数を書くことは避ける。
-  - react のドキュメントに記述があるから、それの参照でも良い気がするので、残しか判断迷う
+#### やること
+
+- ファイル名及びディレクトリ名は全て kebab-case とする。
+  - 決めただけです。理由は特にないです。
+- 機能別で別パターンのときはダッシュを使う。
+  - 決めただけです。理由は特にないです。
+
+#### メリット
+
+- 一貫性を持たせることで、すばやく識別することができる
+
+#### コード例
+
+##### Good👍
+
+```bash
+src
+├design-system
+  ├components
+    ├button.tsx
+    ├button.test.tsx
+    ├button.stories.tsx
+    ├primary-layout.tsx
+    ├primary-layout.test.tsx
+    ├primary-layout.stories.tsx
 
 ```
-// Good
+
+##### Bad👎
+
+###### 決めたルールに従っていない
+
+```bash
+src
+├designSystem
+  ├components
+    ├Button.tsx
+    ├Button.test.tsx
+    ├Button.stories.tsx
+    ├PrimaryLayout.tsx
+    ├PrimaryLayout.test.tsx
+    ├PrimaryLayout.stories.tsx
+```
+
+#### 参考
+
+- https://angular.jp/guide/styleguide#%E3%83%89%E3%83%83%E3%83%88%E3%81%A8%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E5%88%86%E5%89%B2
+
+---
+
+### JSX にそのまま無名関数を書くことは避ける。
+
+#### やること
+
+- コンポーネントに渡す関数を関数式で定義する
+
+#### メリット
+
+- レンダリングおよび処理を呼び出すたびに無名関数が生成されるのを避ける
+  - 無名関数だと、レンダリングされるたびに関数が生成され、メモ化できないため、パフォーマンスが悪くなる。
+
+#### コード例
+
+##### Good👍
+
+###### コンポーネントに渡す関数を関数式で定義している
+
+```tsx
 const handleClick = () => dispatch(SOME_ACTION)
-<SomeCompoennt onClick={handleClick} />
-
-// Bad
-<SomeCompoennt onClick={() => dispatch(SOME_ACTION)} />
+<SomeComponent onClick={handleClick} />
 ```
 
-### Performance
+##### Bad👎
 
-- 適切に `useMemo` を利用する。
+###### コンポーネントに渡す関数を無名関数で定義している
 
-  - 更新回数が少なく、かつ重い処理である場合、`useMemo` を使うことを検討する。
+```tsx
+<SomeComponent onClick={() => dispatch(SOME_ACTION)} />
+```
 
-- 遅延実行して問題ないコンポーネントに対しては、積極的に `React.lazy` / `Suspense` を使う。
+#### 参考
 
-- アセットはすべて最小化しておく。
+- https://legacy.reactjs.org/docs/faq-functions.html#arrow-function-in-render
 
-### UX / Accessibility
+---
 
-TODO: React の話から逸れそうだから分けたほうがいいかも
+### パフォーマンスを上げるために Memo 化を図る
 
-- ユーザーのアクションに対して常に適切なフィードバックを用意する。
-  - API の実行結果で表示を分ける。
-  - 時間のかかる処理を行う場合、ローディングアイコンを表示する。
-- Layout Shift を可能な限り避ける。
+#### やること
 
-- 画像に対しては常に `alt` 属性をつける。[An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) ([日本語訳](https://qiita.com/hibikikudo/items/f710933664094632540d))
-- 適切に aria や `role` 属性を付与する。
-- 適切なセマンティクスで記述する。
+- 適切に `useMemo` , `useCallback`のようなパフォーマンスを上げる hooks を積極的に利用する。
+
+#### 参考
+
+- https://react.dev/reference/react#performance-hooks
+
+---
+
+### コンポーネントの遅延ローディングを利用する
+
+#### やること
+
+- [lazy](https://react.dev/reference/react/lazy)及び[Suspense](https://react.dev/reference/react/Suspense)を利用して、コンポーネントの遅延ローディングを行う。
+
+---
+
+### アセットはすべて最小化しておく
+
+#### やること
+
+- 肥大化したファイルサイズの画像を使わないように、[適度なサイズに圧縮する](https://www.notion.so/ccbc5f85a69c419fba9c33405a25fbc6)
+
+---
+
+### default export を使わない
+
+#### やること
+
+- コンポーネントや hooks などは named export を利用する
+
+#### 例外
+
+- フレームワークやライブラリが default export を要求している場合は利用する
+  - Next.js のページコンポーネント
+    - https://nextjs.org/docs/messages/page-without-valid-component
+  - [lazy](https://react.dev/reference/react/lazy)が依存する[import 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
+
+#### 参考
+
+- https://qiita.com/genshun9/items/4a00aa6c709b9f024821
+
+---
