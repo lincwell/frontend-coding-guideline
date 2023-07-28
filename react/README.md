@@ -40,8 +40,6 @@
 - TODO: VSCode の導入手順
 - TODO: 必要であれば共通設定のリポジトリ
 
----
-
 # 命名規則を統一する
 
 - ファイル名及びディレクトリ名は全て kebab-case とする。
@@ -88,8 +86,6 @@ src
 
 - https://angular.jp/guide/styleguide#%E3%83%89%E3%83%83%E3%83%88%E3%81%A8%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E5%88%86%E5%89%B2
 
----
-
 # JSX にそのまま無名関数を書くことは避ける。
 
 - コンポーネントに渡す関数を関数式で定義する
@@ -120,8 +116,6 @@ const handleClick = () => dispatch(SOME_ACTION)
 
 - https://legacy.reactjs.org/docs/faq-functions.html#arrow-function-in-render
 
----
-
 # パフォーマンスを上げるために Memo 化を図る
 
 - 適切に `useMemo` , `useCallback`のようなパフォーマンスを上げる hooks を積極的に利用する。
@@ -130,19 +124,13 @@ const handleClick = () => dispatch(SOME_ACTION)
 
 - https://react.dev/reference/react#performance-hooks
 
----
-
 # コンポーネントの遅延ローディングを利用する
 
 - [lazy](https://react.dev/reference/react/lazy)及び[Suspense](https://react.dev/reference/react/Suspense)を利用して、コンポーネントの遅延ローディングを行う。
 
----
-
 # アセットはすべて最小化しておく
 
 - 肥大化したファイルサイズの画像を使わないように、[適度なサイズに圧縮する](https://www.notion.so/ccbc5f85a69c419fba9c33405a25fbc6)
-
----
 
 # default export を使わない
 
@@ -158,5 +146,3 @@ const handleClick = () => dispatch(SOME_ACTION)
 ## 参考
 
 - https://qiita.com/genshun9/items/4a00aa6c709b9f024821
-
----
