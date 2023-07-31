@@ -1,0 +1,23 @@
+{
+  "name": "frontend-coding-guideline",
+  "version": "1.0.0",
+  "description": "Linc'well のフロントエンドで採用しているコーディングルール集です。",
+  "scripts": {
+    "prepare": "git config --local core.hooksPath .githooks && chmod -R +x .githooks/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lincwell/frontend-coding-guideline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lincwell/frontend-coding-guideline/issues"
+  },
+  "homepage": "https://github.com/lincwell/frontend-coding-guideline#readme",
+  "devDependencies": {
+    "doctoc": "2.2.1",
+    "prettier": "3.0.0"
+  }
+}

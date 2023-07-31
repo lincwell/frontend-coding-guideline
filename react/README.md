@@ -1,107 +1,148 @@
-# React Coding Guideline
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-WIP
+- [原則](#%E5%8E%9F%E5%89%87)
+- [Format](#format)
+- [命名規則を統一する](#%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87%E3%82%92%E7%B5%B1%E4%B8%80%E3%81%99%E3%82%8B)
+  - [メリット](#%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88)
+  - [コード例 - Good👍](#%E3%82%B3%E3%83%BC%E3%83%89%E4%BE%8B---good)
+  - [コード例 - Bad👎](#%E3%82%B3%E3%83%BC%E3%83%89%E4%BE%8B---bad)
+    - [決めたルールに従っていない](#%E6%B1%BA%E3%82%81%E3%81%9F%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AB%E5%BE%93%E3%81%A3%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84)
+  - [参考](#%E5%8F%82%E8%80%83)
+- [JSX にそのまま無名関数を書くことは避ける。](#jsx-%E3%81%AB%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E7%84%A1%E5%90%8D%E9%96%A2%E6%95%B0%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%93%E3%81%A8%E3%81%AF%E9%81%BF%E3%81%91%E3%82%8B)
+  - [メリット](#%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88-1)
+  - [コード例 - Good👍](#%E3%82%B3%E3%83%BC%E3%83%89%E4%BE%8B---good-1)
+    - [コンポーネントに渡す関数を関数式で定義している](#%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AB%E6%B8%A1%E3%81%99%E9%96%A2%E6%95%B0%E3%82%92%E9%96%A2%E6%95%B0%E5%BC%8F%E3%81%A7%E5%AE%9A%E7%BE%A9%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B)
+  - [コード例 - Bad👎](#%E3%82%B3%E3%83%BC%E3%83%89%E4%BE%8B---bad-1)
+    - [コンポーネントに渡す関数を無名関数で定義している](#%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AB%E6%B8%A1%E3%81%99%E9%96%A2%E6%95%B0%E3%82%92%E7%84%A1%E5%90%8D%E9%96%A2%E6%95%B0%E3%81%A7%E5%AE%9A%E7%BE%A9%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B)
+  - [参考](#%E5%8F%82%E8%80%83-1)
+- [パフォーマンスを上げるために Memo 化を図る](#%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%82%92%E4%B8%8A%E3%81%92%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-memo-%E5%8C%96%E3%82%92%E5%9B%B3%E3%82%8B)
+  - [参考](#%E5%8F%82%E8%80%83-2)
+- [コンポーネントの遅延ローディングを利用する](#%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E9%81%85%E5%BB%B6%E3%83%AD%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B)
+- [アセットはすべて最小化しておく](#%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%81%AF%E3%81%99%E3%81%B9%E3%81%A6%E6%9C%80%E5%B0%8F%E5%8C%96%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8F)
+- [default export を使わない](#default-export-%E3%82%92%E4%BD%BF%E3%82%8F%E3%81%AA%E3%81%84)
+  - [例外](#%E4%BE%8B%E5%A4%96)
+  - [参考](#%E5%8F%82%E8%80%83-3)
 
-## 原則
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# 原則
 
 - 可読性に配慮する。
 - Core Web Vitals のスコアを下げるようなコードを書かない。
   - パフォーマンスを考慮する。
 - アクセシビリティに配慮する。
 
-## Coding
-
-### Format
+# Format
 
 基本的に Code Formatter のルールにしたがう。ルールは共通設定を踏襲する。
 
 - TODO: VSCode の導入手順
 - TODO: 必要であれば共通設定のリポジトリ
 
-### Readability
+# 命名規則を統一する
 
-- React コンポーネント定義の命名は UpperCamelCase とする。
-- ファイル名は、
-  - React コンポーネントに対しては `UpperCamelCase.tsx`
-  - それ以外は `lowerCamelCase.ts`
-- ディレクトリ名は、`kebab-case` とする。
-- スタイルは `styled-components` で実装する。詳細は (TODO: CSS in JS) を参照。
-- 不要な `div` を避け、`React.Fragment` を用いる。
-  - セマンティクスの観点から
+- ファイル名及びディレクトリ名は全て kebab-case とする。
+  - 決めただけです。理由は特にないです。
+- 機能別で別パターンのときはダッシュを使う。
+  - 決めただけです。理由は特にないです。
 
-```
-// Good
-return (
-  <>
-    <ComponentA />
-    <ComponentB />
-    <ComponentC />
-  </>
-);
+## メリット
 
-// Bad
-return (
-  <div>
-    <ComponentA />
-    <ComponentB />
-    <ComponentC />
-  </div>
-);
-```
+- 一貫性を持たせることで、すばやく識別することができる
 
-- JSX にそのまま無名関数を書くことは避ける。
+## コード例 - Good👍
+
+```bash
+src
+├design-system
+  ├components
+    ├button.tsx
+    ├button.test.tsx
+    ├button.stories.tsx
+    ├primary-layout.tsx
+    ├primary-layout.test.tsx
+    ├primary-layout.stories.tsx
 
 ```
-// Good
+
+## コード例 - Bad👎
+
+### 決めたルールに従っていない
+
+```bash
+src
+├designSystem
+  ├components
+    ├Button.tsx
+    ├Button.test.tsx
+    ├Button.stories.tsx
+    ├PrimaryLayout.tsx
+    ├PrimaryLayout.test.tsx
+    ├PrimaryLayout.stories.tsx
+```
+
+## 参考
+
+- https://angular.jp/guide/styleguide#%E3%83%89%E3%83%83%E3%83%88%E3%81%A8%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E5%88%86%E5%89%B2
+
+# JSX にそのまま無名関数を書くことは避ける。
+
+- コンポーネントに渡す関数を関数式で定義する
+
+## メリット
+
+- レンダリングおよび処理を呼び出すたびに無名関数が生成されるのを避ける
+  - 無名関数だと、レンダリングされるたびに関数が生成され、メモ化できないため、パフォーマンスが悪くなる。
+
+## コード例 - Good👍
+
+### コンポーネントに渡す関数を関数式で定義している
+
+```tsx
 const handleClick = () => dispatch(SOME_ACTION)
-<SomeCompoennt onClick={handleClick} />
-
-// Bad
-<SomeCompoennt onClick={() => dispatch(SOME_ACTION)} />
+<SomeComponent onClick={handleClick} />
 ```
 
-- 文字列を props に渡すときは `{}` ではなく文字列リテラルとして渡す。
+## コード例 - Bad👎
 
-```
-// Good
-<FooComponent foo="baz" />
+### コンポーネントに渡す関数を無名関数で定義している
 
-// Bad
-<FooComponent foo={'baz'} />
+```tsx
+<SomeComponent onClick={() => dispatch(SOME_ACTION)} />
 ```
 
-- 正しい英単語を使う。
-- import の順序に一貫性をもたせる。
+## 参考
 
-  - 必要であれば、[eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) などを用いる。
+- https://legacy.reactjs.org/docs/faq-functions.html#arrow-function-in-render
 
-### Performance
+# パフォーマンスを上げるために Memo 化を図る
 
-- 適切に `useMemo` を利用する。
+- 適切に `useMemo` , `useCallback`のようなパフォーマンスを上げる hooks を積極的に利用する。
 
-  - 更新回数が少なく、かつ重い処理である場合、`useMemo` を使うことを検討する。
+## 参考
 
-- 遅延実行して問題ないコンポーネントに対しては、積極的に `React.lazy` / `Suspense` を使う。
+- https://react.dev/reference/react#performance-hooks
 
-- アセットはすべて最小化しておく。
+# コンポーネントの遅延ローディングを利用する
 
-### UX / Accessibility
+- [lazy](https://react.dev/reference/react/lazy)及び[Suspense](https://react.dev/reference/react/Suspense)を利用して、コンポーネントの遅延ローディングを行う。
 
-TODO: React の話から逸れそうだから分けたほうがいいかも
+# アセットはすべて最小化しておく
 
-- ユーザーのアクションに対して常に適切なフィードバックを用意する。
-  - API の実行結果で表示を分ける。
-  - 時間のかかる処理を行う場合、ローディングアイコンを表示する。
-- Layout Shift を可能な限り避ける。
-- 画像に対しては常に `alt` 属性をつける。[An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) ([日本語訳](https://qiita.com/hibikikudo/items/f710933664094632540d))
-- 適切に aria や `role` 属性を付与する。
-- 適切なセマンティクスで記述する。
+- 肥大化したファイルサイズの画像を使わないように、[適度なサイズに圧縮する](https://www.notion.so/ccbc5f85a69c419fba9c33405a25fbc6)
 
-### その他
+# default export を使わない
 
-- 常にテストを書く
-- 常に Storybook を書く
+- コンポーネントや hooks などは named export を利用する
 
-# References
+## 例外
 
-[21 Best Practices for a Clean React Project](https://betterprogramming.pub/21-best-practices-for-a-clean-react-project-df788a682fb)
+- フレームワークやライブラリが default export を要求している場合は利用する
+  - Next.js のページコンポーネント
+    - https://nextjs.org/docs/messages/page-without-valid-component
+  - [lazy](https://react.dev/reference/react/lazy)が依存する[import 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
+
+## 参考
+
+- https://qiita.com/genshun9/items/4a00aa6c709b9f024821
