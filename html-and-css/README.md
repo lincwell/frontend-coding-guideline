@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [HTML and CSS Coding Guideline](#html-and-css-coding-guideline)
+  - [Format](#format)
+  - [Basics](#basics)
+    - [HTML](#html)
+    - [CSS](#css)
+  - [その他](#%E3%81%9D%E3%81%AE%E4%BB%96)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # HTML and CSS Coding Guideline
 
 ## Format
@@ -26,8 +39,8 @@
 
 [ref](https://webuild.envato.com/blog/chainable-bem-modifiers/)
 
-```
-// Good CSS
+```css
+/* Good */
 .form {
   &__button {
     color: white; // default
@@ -45,8 +58,8 @@
 }
 ```
 
-```
-// Good HTML
+```html
+<!-- Good -->
 <form class="container__form">
   ...
   <button class="form__button --primary">Submit</button>
@@ -54,8 +67,8 @@
 </form>
 ```
 
-```
-// Bad CSS
+```css
+/* CSS */
 .form__button--primary {
   color: orange;
   border: #333;
@@ -66,8 +79,8 @@
 }
 ```
 
-```
-// Bad HTML
+```html
+<!-- HTML -->
 <form class="container__form">
   ...
   <button class="form__button--primary">Submit</button>
@@ -76,10 +89,10 @@
 
 単語の区切りにはハイフンを用いる (`kebab-case`)
 
-```
-// Good
+```css
+/* Good */
 .contact-form
-// Bad
+/* Bad */
 .contact_form
 .contactForm
 ```
@@ -89,8 +102,8 @@
 - JavaScript によって操作される要素 => `js-element`
 - 表示切り替えを行う要素 =>`is-show`
 
-```
-// Good
+```html
+<!-- Good -->
 <header class="js-header">Header</header>
 <div class="is-show">Visible Text</div>
 ```
@@ -98,30 +111,29 @@
 - アクセシビリティ・レスポンシブ対応を考慮し、原則的に px を用いず、rem や % で表現する。
   - border など、固定幅で問題ない場合は px を用いる。
 
-```
-// Good
+```css
+/* Good */
 width: 100%;
 font-size: 1.25rem;
 
-// Bad
+/* Bad */
 width: 375px;
 font-size: 20px;
-
 ```
 
 可能な限り Shorthand で記述する。
 
-```
-// Good
+```css
+/* Good */
 padding: 0 1.5rem 2rem;
 
-// Bad
+/* Bad */
 padding-top: 0;
 padding-right: 1.5rem;
 padding-left: 1.5rem;
 padding-bottom: 2rem;
 
-// Bad
+/* Bad */
 padding: 0 1.5rem 2rem 1.5rem;
 ```
 
@@ -129,18 +141,18 @@ padding: 0 1.5rem 2rem 1.5rem;
   - スタイルがタイプに依存することで、保守性が下がるため
   - ul や ol に対しての li や、dl に対しての dt や dd などは対象外（構造としてタイプが決まってしまっていて変更になる可能性が少ないため）
 
-```
-// Good
+```css
+/* Good */
 .header {
   / * some style */
 }
 
-// Bad
+/* Bad */
 header {
   / * some style */
 }
 
-// Bad
+/* Bad */
 #header {
   / * some style */
 }
@@ -150,13 +162,13 @@ header {
   - ブラウザへの負荷が高まるため
   - 影響範囲が分かりづらくなるため
 
-```
-// Good
+```css
+/* Good */
 .hoge-fuga {
   / * some style */
 }
 
-// Bad
+/* Bad */
 .hoge .fuga {
   / * some style */
 }
@@ -164,15 +176,15 @@ header {
 
 - 値が 0 の場合は単位を指定しない
 
-```
-// Good
+```css
+/* Good */
 .example {
- margin-top: 0;
+  margin-top: 0;
 }
 
-// Bad
+/* Bad */
 .example {
- margin-top: 0rem;
+  margin-top: 0rem;
 }
 ```
 
