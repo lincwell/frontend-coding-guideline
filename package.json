@@ -18,6 +18,7 @@
   "homepage": "https://github.com/lincwell/frontend-coding-guideline#readme",
   "devDependencies": {
     "doctoc": "2.2.1",
+    "micromatch": "4.0.5",
     "prettier": "3.0.0"
   }
 }
