@@ -42,9 +42,7 @@
 
 # 命名規則を統一する
 
-- ファイル名及びディレクトリ名は全て kebab-case とする。
-  - 決めただけです。理由は特にないです。
-- 機能別で別パターンのときはダッシュを使う。
+- ファイル名及びディレクトリ名は全て小文字の snake_case とする。
   - 決めただけです。理由は特にないです。
 
 ## メリット
@@ -55,14 +53,14 @@
 
 ```bash
 src
-├design-system
+├design_system
   ├components
     ├button.tsx
     ├button.test.tsx
     ├button.stories.tsx
-    ├primary-layout.tsx
-    ├primary-layout.test.tsx
-    ├primary-layout.stories.tsx
+    ├primary_layout.tsx
+    ├primary_layout.test.tsx
+    ├primary_layout.stories.tsx
 
 ```
 
@@ -78,7 +76,7 @@ src
     ├Button.test.tsx
     ├Button.stories.tsx
     ├PrimaryLayout.tsx
-    ├PrimaryLayout.test.tsx
+    ├Primary-layout.test.tsx
     ├PrimaryLayout.stories.tsx
 ```
 
