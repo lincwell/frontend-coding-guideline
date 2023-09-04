@@ -36,7 +36,7 @@ npm install
 - コード例
   - Good👍
     - Goodの例タイトル
-  - Bad👍
+  - Bad👎
     - Badの例タイトル
 - 例外
 - 参考
